@@ -1,5 +1,5 @@
 class Route
-  attr_reader :start, :stop, :mid, :distance
+  attr_reader :start, :stop, :mid
 
   def initialize(route)
     @start = route[0]
@@ -9,10 +9,6 @@ class Route
 
   def total_distance
     route_distances.include?("Error") ? "NO SUCH ROUTE" : route_distances.inject(0){ |sum, x| sum + x }
-  end
-
-  def trips_with_exact_stops(num)
-    routes_with_exact_stops(start, stop, num).length
   end
 
   private

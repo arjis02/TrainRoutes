@@ -1,4 +1,6 @@
 class DirectRoute < Route
+  attr_reader :distance
+  
   def initialize(route)
     @start = route[0]
     @stop = route[1]
