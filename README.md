@@ -20,3 +20,5 @@ At the bottom of the page, you will see a section for the INITIAL ROUTES. This i
 Then, the next set of variables starting with the word "route" can test to make sure the Direct Routes were set up correctly. Here, you can create a new route with all of the intermediary stops and test to see if the distances add up as expected.
 
 Finally, you can create the Trips you need information on. Simply create a trip with the origin and destination in one string. And run methods like "trips_with_exact_stops(num)" or "num_of_trips_with_max_stops(num)". All of the tests given pass. I also included an edge case test to see if it will recognize that there is a Direct Route to the destination.
+
+To run the program, type "ruby thoughtworks.rb" in the command line. Please make sure you have the latest version of Ruby installed. The tests I provided will output true if the tests pass.
