@@ -36,7 +36,7 @@ puts "6. #{trip1.num_of_trips_with_max_stops(3) == 2 }"
 puts "7. #{trip2.num_of_trips_with_exact_stops(4) == 3 }"
 puts "8. #{trip2.shortest_route_distance == 9 }"
 puts "9. #{trip3.shortest_route_distance == 9 }"
-puts "10. #{trip1.list_routes_with_max_distance(30) == ["CDC", "CEBC", "CDEBC", "CEBCDC", "CDCEBC", "CEBCEBC", "CEBCEBCEBC"]}"
+puts "10. #{trip1.num_of_routes_with_max_distance(30) == 7}"
 
 ######## EDGE CASE TESTS #########
 trip4 = Trip.new("AB") # TEST FOR DIRECT ROUTE

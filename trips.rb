@@ -43,6 +43,10 @@ class Trip < Route
     result.flatten.map{ |trip| trip.start + trip.mid + trip.stop }
   end
 
+  def num_of_routes_with_max_distance(distance)
+    list_routes_with_max_distance(distance).length
+  end
+
   def shortest_route_distance
     i = 1
     result = []
