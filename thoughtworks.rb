@@ -1,6 +1,6 @@
 require_relative 'routes'
 require_relative 'direct_routes'
-require_relative 'trips_with_exact_stops'
+require_relative 'trips'
 require 'pry'
 
 
@@ -22,24 +22,29 @@ route3 = Route.new("ADC")
 route4 = Route.new("AEBCD")
 route5 = Route.new("AED")
 
+trip1 = Trip.new("CC")
+trip2 = Trip.new("AC")
+trip3 = Trip.new("BB")
+
 # ############# TESTS #############
 puts "1. #{route1.total_distance == 9 }"
 puts "2. #{route2.total_distance == 5 }"
 puts "3. #{route3.total_distance == 13 }"
 puts "4. #{route4.total_distance == 22 }"
 puts "5. #{route5.total_distance == 'NO SUCH ROUTE'}"
-# puts "6. #{max_stops("C", "C", 3) == 2}"
-# puts "7. #{trips_with_exact_stops("A", "C", 4) == 3 }"
-# puts "8. #{shortest_route_distance("A", "C") == 9 }"
-# puts "9. #{shortest_route_distance("B", "B") == 9 }"
-# puts "10. #{list_routes_with_max_distance("C", "C", 30) == ["CDC", "CEBC", "CDEBC", "CEBCDC", "CDCEBC", "CEBCEBC", "CEBCEBCEBC"]}"
+puts "6. #{trip1.num_of_trips_with_max_stops(3) == 2 }"
+puts "7. #{trip2.num_of_trips_with_exact_stops(4) == 3 }"
+puts "8. #{trip2.shortest_route_distance == 9 }"
+puts "9. #{trip3.shortest_route_distance == 9 }"
+puts "10. #{trip1.list_routes_with_max_distance(30) == ["CDC", "CEBC", "CDEBC", "CEBCDC", "CDCEBC", "CEBCEBC", "CEBCEBCEBC"]}"
 
-# ######## EDGE CASE TESTS #########
-# puts "***************"
-# puts "Additional Tests"
-# puts "11. #{total_distance("AB") == 5 }"
-# puts "12. #{max_stops("A", "B", 1) == 1 }"
-# puts "13. #{shortest_route_distance("A", "B") == 5 }"
+######## EDGE CASE TESTS #########
+trip4 = Trip.new("AB")
+puts "***************"
+puts "Additional Tests"
+puts "11. #{trip4.total_distance == 5 }"
+puts "12. #{trip4.num_of_trips_with_max_stops(1) == 1 }"
+puts "13. #{trip4.shortest_route_distance == 5 }"
 
 
 # ############################# PRIVATE METHODS ####################################
