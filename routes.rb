@@ -1,6 +1,5 @@
 class Route
-  attr_reader :start, :stop
-  attr_accessor :mid, :distance, :num_of_stops
+  attr_reader :start, :stop, :mid, :distance
 
   def initialize(route)
     @start = route[0]

@@ -1,15 +1,11 @@
 class Trip < Route
-  def current_position_routes(start)
-    DirectRoute.all.select{ |route| route.start == start }
-  end
-
-  def routes_with_exact_stops(num)
+  def trips_with_exact_stops(num)
     list = generate_complete_paths(start, stop, num)
     list.select{ |path| path[0] == start && path[-1] == stop }
   end
 
   def num_of_trips_with_exact_stops(num)
-    routes_with_exact_stops(num).length
+    trips_with_exact_stops(num).length
   end
 
   def trips_with_max_stops(num)
@@ -17,7 +13,7 @@ class Trip < Route
     i = num
 
     while i > 0
-      result << routes_with_exact_stops(i)
+      result << trips_with_exact_stops(i)
       i -= 1
     end
 
@@ -33,7 +29,7 @@ class Trip < Route
     result = []
 
     while i < (distance/2)
-      routes = routes_with_exact_stops(i)
+      routes = trips_with_exact_stops(i)
 
       trips = []
       routes.each do |route|
@@ -52,8 +48,8 @@ class Trip < Route
     result = []
 
     while result.empty?
-      if !routes_with_exact_stops(i).empty?
-        result = routes_with_exact_stops(i)
+      if !trips_with_exact_stops(i).empty?
+        result = trips_with_exact_stops(i)
       end
       i += 1
     end
@@ -64,6 +60,12 @@ class Trip < Route
     end
 
     trips.flatten.min{ |x, y| x.total_distance <=> y.total_distance }.total_distance
+  end
+
+  private
+
+  def current_position_routes(start)
+    DirectRoute.all.select{ |route| route.start == start }
   end
 
   def recursive_find_paths(start, max, path = [], list = list || [])
@@ -93,5 +95,4 @@ class Trip < Route
     end
     generate_complete_paths
   end
-
 end
